@@ -17,16 +17,14 @@ btn.addEventListener("click", function () {
     const difficulty = selectRow(selectDifficulty);
 
     const bomb = randomNumber(difficulty);
-    console.log(bomb);
+    console.log(bomb)
 
     for (let i = 0; i < difficulty; i++) {
 
         createBlock(container, difficulty, i, bomb, score);
 
     }
-
 })
-
 
 // Funzione che crea una div class "block"
 function createBlock(containerBlock, y, i, bomb, score) {
@@ -36,7 +34,6 @@ function createBlock(containerBlock, y, i, bomb, score) {
     containerBlock.append(block);
 
     block.addEventListener("click", function () {
-
 
         if (block.dataset.click === "1") {
             return
@@ -55,6 +52,11 @@ function createBlock(containerBlock, y, i, bomb, score) {
             return
         }
         score.push(1);
+
+        if (score.length === y - 16) {
+            alert("HAI VINTO");
+            alert(`SCORE: ${score.length}`);
+        }
     })
 }
 
@@ -85,7 +87,6 @@ function randomNumber(x) {
         if (array.indexOf(randomNum) === -1) {
             array.push(randomNum);
         }
-
     }
     return array;
 }

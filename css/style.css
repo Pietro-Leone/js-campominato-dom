@@ -7,10 +7,11 @@
 }
 
 body {
-    height: 100vh;
+    /* height: 100vh; */
     background-image: url("../img/windows-xp-wallpaper.jpg");
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 
 .face-btn {
