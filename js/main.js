@@ -6,6 +6,8 @@ const btn = document.getElementById("btn");
 
 btn.addEventListener("click", function () {
 
+    let score = [];
+
     container.classList.replace("d-none", "d-flex")
 
     container.innerHTML = "";
@@ -19,7 +21,7 @@ btn.addEventListener("click", function () {
 
     for (let i = 0; i < difficulty; i++) {
 
-        createBlock(container, difficulty, i, bomb);
+        createBlock(container, difficulty, i, bomb, score);
 
     }
 
@@ -27,7 +29,7 @@ btn.addEventListener("click", function () {
 
 
 // Funzione che crea una div class "block"
-function createBlock(containerBlock, y, i, bomb) {
+function createBlock(containerBlock, y, i, bomb, score) {
     let block = document.createElement("div");
     block.classList.add("block");
     block.style.flexBasis = `calc(100% / ${Math.sqrt(y)})`;
@@ -35,18 +37,24 @@ function createBlock(containerBlock, y, i, bomb) {
 
     block.addEventListener("click", function () {
 
+
         if (block.dataset.click === "1") {
             return
         }
 
-        if (bomb.indexOf(i) !== -1){
-            block.classList.add("block-bomb")
+        block.dataset.click = 1;
+        block.classList.toggle("block-click");
+        console.log(i);
+
+        if (bomb.indexOf(i) !== -1) {
+            block.dataset.bomb = 1;
+            block.classList.add("block-bomb");
+            console.log("HAI PERSO");
+            alert("HAI PERSO");
+            alert(`SCORE: ${score.length}`);
             return
         }
-
-        block.classList.toggle("block-click");
-        block.dataset.click = 1;
-        console.log(i)
+        score.push(1);
     })
 }
 
