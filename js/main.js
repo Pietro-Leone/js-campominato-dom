@@ -8,7 +8,10 @@ btn.addEventListener("click", function () {
 
     let score = [];
 
+    container.style.zIndex = 1;
+
     container.classList.replace("d-none", "d-flex")
+
 
     container.innerHTML = "";
 
@@ -49,7 +52,7 @@ function createBlock(containerBlock, y, i, bomb, score) {
             console.log("HAI PERSO");
             alert("HAI PERSO");
             alert(`SCORE: ${score.length}`);
-            containerBlock.style.zIndex =-1;
+            containerBlock.style.zIndex = -1;
             return
         }
         score.push(1);
@@ -58,6 +61,7 @@ function createBlock(containerBlock, y, i, bomb, score) {
             console.log("HAI VINTO");
             alert("HAI VINTO");
             alert(`SCORE: ${score.length}`);
+            containerBlock.style.zIndex = -1;
         }
     })
 }
