@@ -14,20 +14,20 @@ btn.addEventListener("click", function () {
 
     const difficulty = selectRow(selectDifficulty);
 
-    for (let i = 0; i < difficulty; i++) {
-
-        createBlock(container, difficulty, i);
-
-    }
-
     const bomb = randomNumber(difficulty);
     console.log(bomb);
+
+    for (let i = 0; i < difficulty; i++) {
+
+        createBlock(container, difficulty, i, bomb);
+
+    }
 
 })
 
 
 // Funzione che crea una div class "block"
-function createBlock(containerBlock, y, i) {
+function createBlock(containerBlock, y, i, bomb) {
     let block = document.createElement("div");
     block.classList.add("block");
     block.style.flexBasis = `calc(100% / ${Math.sqrt(y)})`;
@@ -36,6 +36,11 @@ function createBlock(containerBlock, y, i) {
     block.addEventListener("click", function () {
 
         if (block.dataset.click === "1") {
+            return
+        }
+
+        if (bomb.indexOf(i) !== -1){
+            block.classList.add("block-bomb")
             return
         }
 

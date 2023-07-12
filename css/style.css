@@ -44,3 +44,8 @@ body {
     background-color: #c0c0c0;
     box-shadow: none;
 }
+
+.block-bomb {
+    background-image: url("../img/bomb.png");
+    background-size: cover;
+}
