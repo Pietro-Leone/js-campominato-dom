@@ -60,7 +60,7 @@ body {
     aspect-ratio: 1/1;
     border: 3px solid #808080;
     background-color: #c0c0c0;
-    box-shadow: inset 1rem 1rem white, inset -1rem -1rem #808080;
+    box-shadow: inset .4rem .4rem white, inset -.4rem -.4rem #808080;
 }
 
 .block:hover {
