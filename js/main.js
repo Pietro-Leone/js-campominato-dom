@@ -7,11 +7,11 @@ const btn = document.getElementById("btn");
 btn.addEventListener("click", function () {
 
     let score = [];
+    document.getElementById("score").innerHTML = `0${score.length}`;
 
     container.style.zIndex = 1;
 
     container.classList.replace("d-none", "d-flex")
-
 
     container.innerHTML = "";
 
@@ -36,34 +36,46 @@ function createBlock(containerBlock, y, i, bomb, score) {
     block.style.flexBasis = `calc(100% / ${Math.sqrt(y)})`;
     containerBlock.append(block);
 
-    block.addEventListener("click", function () {
+    if (bomb.indexOf(i) !== -1) {
+        block.dataset.bomb = 1;
+        block.addEventListener("click", function () {
 
-        if (block.dataset.click === "1") {
-            return
-        }
-
-        block.dataset.click = 1;
-        block.classList.toggle("block-click");
-        console.log(i);
-
-        if (bomb.indexOf(i) !== -1) {
-            block.dataset.bomb = 1;
-            block.classList.add("block-bomb");
+            block.classList.add("block-bomb", "bg-danger");
             console.log("HAI PERSO");
-            alert("HAI PERSO");
-            alert(`SCORE: ${score.length}`);
+            alert(`HAI PERSO! \n\nSCORE: ${score.length}`);
             containerBlock.style.zIndex = -1;
-            return
-        }
-        score.push(1);
 
-        if (score.length === y - bomb.length) {
-            console.log("HAI VINTO");
-            alert("HAI VINTO");
-            alert(`SCORE: ${score.length}`);
-            containerBlock.style.zIndex = -1;
-        }
-    })
+            let bombs = document.querySelectorAll('[data-bomb="1"]');
+            for (let i = 0; i < bombs.length; i++) {
+                bombs[i].classList.add("block-bomb");
+            }
+
+        })
+    } else {
+        block.addEventListener("click", function () {
+
+            if (block.dataset.click === "1") {
+                return
+            }
+
+            block.dataset.click = 1;
+            block.classList.toggle("block-click");
+            console.log(i);
+            score.push(1);
+            if (score.length < 10) {
+                document.getElementById("score").innerHTML = `0${score.length}`;
+            }
+            else {
+                document.getElementById("score").innerHTML = `${score.length}`;
+            }
+
+            if (score.length === y - bomb.length) {
+                console.log("HAI VINTO");
+                alert(`HAI VINTO! \n\nSCORE: ${score.length}`);
+                containerBlock.style.zIndex = -1;
+            }
+        })
+    }
 }
 
 // Funzione che controlla il valore selezionato nella select dall'utente
@@ -82,6 +94,7 @@ function selectRow(x) {
     return blockInRow;
 }
 
+// Funzione che crea 16 numeri random da 0 a x (quantità di celle scelta in base alla select)
 function randomNumber(x) {
     x++;
     const array = [];

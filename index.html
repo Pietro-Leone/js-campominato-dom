@@ -10,6 +10,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="https://boolean.careers/favicon/favicon.ico">
+    <link href="https://fonts.cdnfonts.com/css/alarm-clock" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Campo Minato</title>
 </head>
@@ -17,23 +18,28 @@
 <body>
 
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="pt-3 d-flex flex-column align-items-center">
-                    <button type="button" id="btn" class="face-btn"></button>
-                    <div class="p-2">
-                        <select id="difficulty">
-                            <option value="1">Facile</option>
-                            <option value="2">Normale</option>
-                            <option value="3">Difficile</option>
-                        </select>
+        <div class="row pt-3">
+            <div class="top-container d-flex">
+                <div class="col"></div>
+                <div class="col">
+                    <div class="pt-3 d-flex flex-column align-items-center">
+                        <button type="button" id="btn" class="face-btn"></button>
+                        <div class="p-2">
+                            <select id="difficulty">
+                                <option value="1">Facile</option>
+                                <option value="2">Normale</option>
+                                <option value="3">Difficile</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
+                <div class="col d-flex align-items-end justify-content-end">
+                    <div class="score score-overlay display-2 text-center">88</div>
+                    <div id="score" class="score display-2 text-center">00</div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div id="block-container" class="block-container d-none flex-wrap">
+            <div class="col-12">
+                <div id="block-container" class="block-container d-none flex-wrap mt-0">
 
                 </div>
             </div>

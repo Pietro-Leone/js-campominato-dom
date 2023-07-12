@@ -14,20 +14,45 @@ body {
     background-attachment: fixed;
 }
 
+.top-container {
+    width: 900px;
+    margin: auto;
+    background-color: #c0c0c0;
+}
+
 .face-btn {
     background-image: url("../img/face-button.png");
     background-size: cover;
     box-shadow: inset .4rem .4rem white, inset -.4rem -.4rem #808080;
-    width: 100px;
+    width: 110px;
     aspect-ratio: 1/1;
+}
+
+.score {
+    font-family: 'alarm clock', sans-serif;
+    width: 110px;
+    aspect-ratio: 1/1;
+    line-height: 110px;
+    margin-bottom: 40px;
+    border: none;
+    box-shadow: inset .4rem .4rem white, inset -.4rem -.4rem #808080;
+    color: red;
+    background-color: black;
+}
+
+.score-overlay {
+    background-color: transparent;
+    box-shadow: none;
+    opacity: 0.2;
+    position: absolute;
 }
 
 .block-container {
     width: 900px;
-    margin: 2rem auto;
+    margin: auto;
     padding: .5rem;
-    border: 5px solid #808080;
-    background-color: #808080;
+    border: 5px solid #c0c0c0;
+    background-color: #c0c0c0;
     position: relative;
 }
 
