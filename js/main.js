@@ -49,11 +49,13 @@ function createBlock(containerBlock, y, i, bomb, score) {
             console.log("HAI PERSO");
             alert("HAI PERSO");
             alert(`SCORE: ${score.length}`);
+            containerBlock.style.zIndex =-1;
             return
         }
         score.push(1);
 
-        if (score.length === y - 16) {
+        if (score.length === y - bomb.length) {
+            console.log("HAI VINTO");
             alert("HAI VINTO");
             alert(`SCORE: ${score.length}`);
         }
