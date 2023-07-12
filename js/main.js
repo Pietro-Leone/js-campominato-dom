@@ -20,6 +20,9 @@ btn.addEventListener("click", function () {
 
     }
 
+    const bomb = randomNumber(difficulty);
+    console.log(bomb);
+
 })
 
 
@@ -31,7 +34,13 @@ function createBlock(containerBlock, y, i) {
     containerBlock.append(block);
 
     block.addEventListener("click", function () {
+
+        if (block.dataset.click === "1") {
+            return
+        }
+
         block.classList.toggle("block-click");
+        block.dataset.click = 1;
         console.log(i)
     })
 }
@@ -50,4 +59,20 @@ function selectRow(x) {
         blockInRow = 49;
     }
     return blockInRow;
+}
+
+function randomNumber(x) {
+    x++;
+    const array = [];
+
+    while (array.length < 16) {
+
+        const randomNum = Math.floor(Math.random() * x);
+
+        if (array.indexOf(randomNum) === -1) {
+            array.push(randomNum);
+        }
+
+    }
+    return array;
 }
